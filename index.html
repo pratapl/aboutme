@@ -302,7 +302,7 @@
     .tl-tooltip {
       display: none;
       position: absolute;
-      bottom: calc(100% + 10px);
+      top: calc(100% + 10px);
       left: 0;
       width: 200px;
       background: #fff9f2;
@@ -316,18 +316,18 @@
     .tl-tooltip::after {
       content: '';
       position: absolute;
-      top: 100%;
+      bottom: 100%;
       left: 14px;
       border: 6px solid transparent;
-      border-top-color: var(--sand);
+      border-bottom-color: var(--sand);
     }
     .tl-tooltip::before {
       content: '';
       position: absolute;
-      top: 100%;
+      bottom: 100%;
       left: 15px;
       border: 5px solid transparent;
-      border-top-color: #fff9f2;
+      border-bottom-color: #fff9f2;
       z-index: 1;
     }
     .tl-tooltip p {
@@ -368,16 +368,16 @@
       <div class="timeline">
 
         <div class="tl-item">
-          <div class="tl-tooltip"><strong>Colby College</strong><p>Studied Mathematics in a rich liberal arts environment — sharpened analytical thinking and learned to approach problems from multiple perspectives.</p></div>
+          <div class="tl-tooltip"><strong>Colby College</strong><p>Studied Mathematics in a rich liberal arts environment. Sharpened analytical thinking and learned to approach problems from multiple perspectives.</p></div>
           <div class="tl-dot"></div>
           <span class="tl-icon">🎓</span>
           <div class="tl-year">2014</div>
           <div class="tl-title">Colby College</div>
-          <div class="tl-sub">BA · Mathematics<br/>Liberal Arts</div>
+          <div class="tl-sub">BA · Mathematics</div>
         </div>
 
         <div class="tl-item">
-          <div class="tl-tooltip"><strong>Thayer School of Engineering</strong><p>Earned a BE in Computer Engineering — bridging the liberal arts mindset from Colby with rigorous engineering principles at one of the country's top engineering schools.</p></div>
+          <div class="tl-tooltip"><strong>Thayer School of Engineering</strong><p>Earned a BE in Computer Engineering, bridging the liberal arts mindset from Colby with rigorous engineering principles at one of the country's top engineering schools.</p></div>
           <div class="tl-dot"></div>
           <span class="tl-icon">⚙️</span>
           <div class="tl-year">2015</div>
@@ -386,7 +386,7 @@
         </div>
 
         <div class="tl-item">
-          <div class="tl-tooltip"><strong>Software Engineer</strong><p>Joined Alarm.com straight out of Dartmouth, diving into building and shipping software across the platform. Developed a strong engineering foundation and a love for scalable systems.</p></div>
+          <div class="tl-tooltip"><strong>Software Engineer</strong><p>Coming straight out of Dartmouth, started as an SE in the Video team supporting security cameras in the Alarm.com ecosystem. Integrated the first cloud video as well as the first doorbell camera on the platform, which saw a quick rise in adoption. Learned the challenges of growing the backend to support a rapidly growing product, and fell in love with scalable systems and design.</p></div>
           <div class="tl-dot"></div>
           <span class="tl-icon">💻</span>
           <div class="tl-year">2015 — 2017</div>
@@ -395,7 +395,7 @@
         </div>
 
         <div class="tl-item">
-          <div class="tl-tooltip"><strong>Senior Software Engineer</strong><p>Took on increasingly complex systems and began contributing to architecture decisions. Started mentoring junior engineers and became a go-to for hard technical problems.</p></div>
+          <div class="tl-tooltip"><strong>Senior Software Engineer</strong><p>Started working directly under the VP of Software to grow and maintain the backend infrastructure. Took on increasingly complex systems and began contributing to architecture decisions. Started mentoring junior engineers and became a go-to for hard technical problems.</p></div>
           <div class="tl-dot"></div>
           <span class="tl-icon">🔧</span>
           <div class="tl-year">2017 — 2020</div>
