@@ -353,6 +353,40 @@
       from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
     }
+
+    /* ── Tabs ── */
+    .tabs {
+      margin-top: 3rem;
+    }
+    .tab-nav {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--sand);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 0.6rem 0;
+      margin-right: 2rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brown-light);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .tab-btn:hover { color: var(--brown); }
+    .tab-btn.active {
+      color: var(--terracotta);
+      border-bottom-color: var(--terracotta);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
   </style>
 </head>
 <body>
@@ -368,7 +402,7 @@
       <div class="timeline">
 
         <div class="tl-item">
-          <div class="tl-tooltip"><strong>Colby College</strong><p>Studied Mathematics in a rich liberal arts environment. Sharpened analytical thinking and learned to approach problems from multiple perspectives.</p></div>
+          <div class="tl-tooltip"><strong>Colby College</strong><p>Studied Mathematics in a rich liberal arts environment. It is where I fell in love with prime numbers and infinities. Concepts that are simple to state and endlessly deep to explore. That sense of wonder has never really left me.</p></div>
           <div class="tl-dot"></div>
           <span class="tl-icon">🎓</span>
           <div class="tl-year">2014</div>
@@ -377,7 +411,7 @@
         </div>
 
         <div class="tl-item">
-          <div class="tl-tooltip"><strong>Thayer School of Engineering</strong><p>Earned a BE in Computer Engineering, bridging the liberal arts mindset from Colby with rigorous engineering principles at one of the country's top engineering schools.</p></div>
+          <div class="tl-tooltip"><strong>Thayer School of Engineering</strong><p>Earned a BE in Computer Engineering at one of the country's top engineering schools. Dartmouth is where I started appreciating the art of end to end ownership, taking an engineering system from idea all the way through to something real and delivered.</p></div>
           <div class="tl-dot"></div>
           <span class="tl-icon">⚙️</span>
           <div class="tl-year">2015</div>
@@ -386,7 +420,7 @@
         </div>
 
         <div class="tl-item">
-          <div class="tl-tooltip"><strong>Software Engineer</strong><p>Coming straight out of Dartmouth, started as an SE in the Video team supporting security cameras in the Alarm.com ecosystem. Integrated the first cloud video as well as the first doorbell camera on the platform, which saw a quick rise in adoption. Learned the challenges of growing the backend to support a rapidly growing product, and fell in love with scalable systems and design.</p></div>
+          <div class="tl-tooltip"><strong>Software Engineer</strong><p>My first real taste of scale. I integrated the first doorbell camera on the Alarm.com platform. The camera went on to sell close to a million units, and what started as a novel integration quickly became a lesson in what happens when a product takes off faster than the infrastructure beneath it. Watching the backend strain under rapid adoption, and then being part of figuring out how to hold it together, is what made me fall in love with scalable systems and architecture. That early chaos planted a seed that has defined my career.</p></div>
           <div class="tl-dot"></div>
           <span class="tl-icon">💻</span>
           <div class="tl-year">2015 — 2017</div>
@@ -415,12 +449,12 @@
       </div>
     </div>
 
-    <div class="values-section">
+    <div class="values-section" style="margin-top: 3rem;">
       <div class="timeline-label">Values</div>
       <div class="values-cards">
         <div class="value-card">
           <div class="value-title">The collective</div>
-          <p class="value-desc">The feeling of achieving something together with people you've toiled with is truly magical. Late night fires, final pushes, tough launches. Being there for each other through all of it is what makes a team a team. That shared journey is the core of why I lead.</p>
+          <p class="value-desc">The feeling of achieving something together with people you've toiled with is truly magical. That shared journey is the core of why I lead.</p>
         </div>
         <div class="value-card">
           <div class="value-title">Safe to fail</div>
@@ -439,6 +473,13 @@
   </div>
 
   <script>
+    function switchTab(e, id) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      e.currentTarget.classList.add('active');
+      document.getElementById(id).classList.add('active');
+    }
+
     function toggleAccordion(btn) {
       btn.classList.toggle('open');
       const body = btn.nextElementSibling;
