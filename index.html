@@ -9,12 +9,12 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream: #faf6f0;
+      --cream: #a8825a;
       --sand: #e8ddd0;
       --terracotta: #c8614a;
-      --brown: #5c3d2e;
+      --brown: #000000;
       --brown-light: #b8927e;
-      --text-muted: #7a5f54;
+      --text-muted: #000000;
     }
 
     body {
@@ -138,10 +138,10 @@
     }
 
     .subtitle {
-      font-size: 0.95rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
-      font-weight: 300;
-      font-style: italic;
+      font-weight: 500;
+      line-height: 1.4;
       margin-bottom: 0;
       margin-top: -1.4rem;
       text-align: center;
@@ -160,8 +160,8 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 0.8rem;
-      color: var(--terracotta);
+      font-size: 0.75rem;
+      color: var(--text-muted);
       text-decoration: none;
       font-weight: 500;
       border-bottom: 1px solid transparent;
@@ -179,6 +179,7 @@
     }
     .link-logo.arxiv {
       height: 13px;
+      filter: brightness(0.6);
     }
 
     /* ── Accordion ── */
@@ -263,14 +264,10 @@
       display: block;
       flex-shrink: 0;
       border-radius: 50%;
-      background: #fff;
+      background: #d9c4a0;
       padding: 12px;
-      box-shadow: 0 0 0 1px var(--sand);
       transition: box-shadow 0.2s, transform 0.2s;
       margin-bottom: 0.6rem;
-    }
-    .edu-logo.pine {
-      padding: 16px;
     }
     .edu-logo.emoji {
       padding: 0;
@@ -307,7 +304,7 @@
       margin-bottom: 0;
     }
     .edu-item:hover .edu-logo {
-      box-shadow: 0 0 0 1px var(--brown-light), 0 4px 14px rgba(90, 50, 30, 0.12);
+      box-shadow: 0 4px 14px rgba(90, 50, 30, 0.12);
       transform: translateY(-2px);
     }
     .edu-summary-tooltip {
@@ -317,8 +314,7 @@
       top: 50%;
       transform: translateY(-50%);
       width: 280px;
-      background: #fff9f2;
-      border: 1px solid var(--sand);
+      background: #d9c4a0;
       border-radius: 12px;
       padding: 0.9rem 1.1rem;
       box-shadow: 0 8px 24px rgba(90, 50, 30, 0.14);
@@ -337,13 +333,13 @@
       font-family: 'Lora', serif;
       font-size: 0.85rem;
       font-weight: 600;
-      color: var(--brown);
+      color: #000;
       margin-bottom: 0.4rem;
     }
     .edu-summary-text {
       font-size: 0.8rem;
       line-height: 1.65;
-      color: var(--text-muted);
+      color: #000;
       font-weight: 300;
     }
     .edu-name {
@@ -357,12 +353,12 @@
     .edu-sub {
       font-size: 0.75rem;
       color: var(--text-muted);
-      font-weight: 300;
+      font-weight: 500;
       line-height: 1.4;
     }
     .edu-year {
       font-size: 0.72rem;
-      color: var(--terracotta);
+      color: var(--text-muted);
       font-weight: 500;
       letter-spacing: 0.02em;
       line-height: 1.4;
@@ -426,19 +422,17 @@
           <div class="edu-sub">BA · Mathematics</div>
           <div class="edu-year">2014</div>
           <div class="edu-summary-tooltip">
-            <div class="edu-summary-title">Colby College</div>
             <div class="edu-summary-text">Studied Mathematics in a rich liberal arts environment. It is where I fell in love with prime numbers and infinities. Concepts that are simple to state and endlessly deep to explore. That sense of wonder has never really left me.</div>
           </div>
         </div>
 
         <div class="edu-item">
-          <img class="edu-logo pine" src="logos/dartmouth-pine.jpg" alt="Dartmouth College D-Pine logo" />
+          <img class="edu-logo" src="logos/dartmouth-thayer.png" alt="Dartmouth College Thayer School of Engineering shield" />
           <div class="edu-name">Dartmouth College</div>
           <div class="edu-sub">BE · Computer Engineering</div>
           <div class="edu-year">2015</div>
           <div class="edu-summary-tooltip">
-            <div class="edu-summary-title">Dartmouth College · Thayer School of Engineering</div>
-            <div class="edu-summary-text">Earned a BE in Computer Engineering at one of the country's top engineering schools. Dartmouth is where I started appreciating the art of end to end ownership, taking an engineering system from idea all the way through to something real and delivered.</div>
+            <div class="edu-summary-text">Dartmouth is where I started appreciating the art of end to end ownership, taking an engineering system from idea all the way through to something real and delivered.</div>
           </div>
         </div>
 
@@ -448,8 +442,7 @@
           <div class="edu-sub">Software Engineering</div>
           <div class="edu-year">2015 – Present</div>
           <div class="edu-summary-tooltip">
-            <div class="edu-summary-title">Alarm.com</div>
-            <div class="edu-summary-text">Joined right out of Dartmouth in 2015 as a Software Engineer. Over the next few years I organically transitioned into building the Infrastructure and SRE team from the ground up, defining the on-call model, incident process, and culture of ownership as I went. Since 2020 I've led that team, supporting ~10 million security cameras across ~5 million customers worldwide. We've scaled on-prem and Azure infrastructure across international regions through 100x product growth while maintaining 99.99% uptime, as the company grew from $100M to ~$1B in revenue and the Video org scaled from 10 to 100 engineers.</div>
+            <div class="edu-summary-text">I joined Alarm.com as a Software Engineer not long after the company went public, back when it was still small with a big idea. Over the years I helped it grow into a complex distributed system spanning continents, and found myself in constant awe, of the scale (billions of events moving through systems we built) and of the people who kept that scale alive. I built a team from the ground up to keep the infrastructure running 24x7, and along the way collected more sleepless nights than I can count, and even sweeter memories with the fellow warriors who shared them.</div>
           </div>
         </div>
 
@@ -459,7 +452,6 @@
           <div class="edu-sub">LEAD</div>
           <div class="edu-year">2026 – 2027</div>
           <div class="edu-summary-tooltip">
-            <div class="edu-summary-title">Stanford Graduate School of Business</div>
             <div class="edu-summary-text">Accepted into Stanford's LEAD executive program to build the business fluency and cross-functional vocabulary to think about the fuller shape of a company, not just the infrastructure layer underneath it. Also sitting with a question I keep circling back to: how to keep building profitable businesses while still leading authentically, without treating the two as being in tension.</div>
           </div>
         </div>
@@ -484,15 +476,13 @@
         <div class="edu-item freetime-item">
           <span class="freetime-icon">🎹</span>
           <div class="edu-summary-tooltip">
-            <div class="edu-summary-title">Piano</div>
             <div class="edu-summary-text">Picked up piano as an adult beginner. No grand ambitions, just enjoying working through scales and simple pieces one evening at a time.</div>
           </div>
         </div>
 
         <div class="edu-item freetime-item">
-          <span class="freetime-icon">🚲</span>
+          <span class="freetime-icon" style="filter: brightness(0.3);">🚲</span>
           <div class="edu-summary-tooltip">
-            <div class="edu-summary-title">Biking</div>
             <div class="edu-summary-text">Long rides with no particular destination. One of the few times my head actually goes quiet.</div>
           </div>
         </div>
