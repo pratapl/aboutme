@@ -59,7 +59,7 @@
     .card {
       max-width: 860px;
       width: 100%;
-      animation: fadeUp 0.8s ease both;
+      animation: fadeUp 0.8s ease;
     }
 
     .eyebrow {
@@ -312,11 +312,9 @@
     }
     .edu-summary-tooltip {
       display: none;
-      position: absolute;
-      left: calc(100% + 14px);
-      top: 50%;
-      transform: translateY(-50%);
+      position: fixed;
       width: 280px;
+      max-width: calc(100vw - 2rem);
       background: #d9c4a0;
       border-radius: 12px;
       padding: 0.9rem 1.1rem;
@@ -324,13 +322,10 @@
       z-index: 30;
       text-align: left;
       white-space: normal;
+      cursor: default;
     }
-    .edu-item:hover .edu-summary-tooltip {
+    .edu-summary-tooltip.open {
       display: block;
-    }
-    .edu-item:last-child .edu-summary-tooltip {
-      left: auto;
-      right: calc(100% + 14px);
     }
     .edu-summary-title {
       font-family: 'Lora', serif;
@@ -424,16 +419,7 @@
       }
       .edu-logo.pine { padding: 6px; }
       .edu-logo.emoji { font-size: 2.1rem; }
-      .edu-summary-tooltip,
-      .edu-item:last-child .edu-summary-tooltip {
-        position: fixed;
-        left: 1rem;
-        right: 1rem;
-        top: auto;
-        bottom: 1.25rem;
-        transform: none;
-        width: auto;
-        max-width: none;
+      .edu-summary-tooltip.open {
         max-height: 45vh;
         overflow-y: auto;
       }
@@ -451,43 +437,43 @@
     <div class="education-section">
       <div class="education-logos">
 
-        <div class="edu-item">
+        <div class="edu-item" onclick="toggleTooltip(this, event)">
           <img class="edu-logo" src="logos/colby.svg" alt="Colby College logo" />
           <div class="edu-name">Colby College</div>
           <div class="edu-sub">BA · Mathematics</div>
           <div class="edu-year">2014</div>
-          <div class="edu-summary-tooltip">
-            <div class="edu-summary-text">Studied Mathematics in a rich liberal arts environment. It is where I fell in love with prime numbers and infinities. Concepts that are simple to state and endlessly deep to explore. That sense of wonder has never really left me.</div>
+          <div class="edu-summary-tooltip" onclick="event.stopPropagation(); this.classList.remove('open');">
+            <div class="edu-summary-text">Studied Mathematics in a rich liberal arts environment where I fell in love with prime numbers and infinities. That sense of wonder has stayed with me since.</div>
           </div>
         </div>
 
-        <div class="edu-item">
+        <div class="edu-item" onclick="toggleTooltip(this, event)">
           <img class="edu-logo pine" src="logos/dartmouth-pine.jpg" alt="Dartmouth College D-Pine logo" />
           <div class="edu-name">Dartmouth College</div>
           <div class="edu-sub">BE · Computer Engineering</div>
           <div class="edu-year">2015</div>
-          <div class="edu-summary-tooltip">
+          <div class="edu-summary-tooltip" onclick="event.stopPropagation(); this.classList.remove('open');">
             <div class="edu-summary-text">Dartmouth is where I started appreciating the art of end to end ownership, taking an engineering system from idea all the way through to something real and delivered.</div>
           </div>
         </div>
 
-        <div class="edu-item">
+        <div class="edu-item" onclick="toggleTooltip(this, event)">
           <img class="edu-logo" src="logos/alarm.png" alt="Alarm.com logo" />
           <div class="edu-name">Alarm.com</div>
           <div class="edu-sub">Software Engineering</div>
           <div class="edu-year">2015 – Present</div>
-          <div class="edu-summary-tooltip">
-            <div class="edu-summary-text">I joined Alarm.com as a Software Engineer not long after the company went public, back when it was still small with a big idea. Over the years I helped it grow into a complex distributed system spanning continents, and found myself in constant awe, of the scale (billions of events moving through systems we built) and of the people who kept that scale alive. I built a team from the ground up to keep the infrastructure running 24x7, and along the way collected more sleepless nights than I can count, and even sweeter memories with the fellow warriors who shared them.</div>
+          <div class="edu-summary-tooltip" onclick="event.stopPropagation(); this.classList.remove('open');">
+            <div class="edu-summary-text">Helped grow a ~$100M business into a ~$1B revenue company over a decade. Learned engineering isn't enough, it's people and teamwork that build anything of quality and value.</div>
           </div>
         </div>
 
-        <div class="edu-item">
+        <div class="edu-item" onclick="toggleTooltip(this, event)">
           <img class="edu-logo" src="logos/stanford.svg" alt="Stanford University logo" />
           <div class="edu-name">Stanford GSB</div>
           <div class="edu-sub">LEAD</div>
           <div class="edu-year">2026 – 2027</div>
-          <div class="edu-summary-tooltip">
-            <div class="edu-summary-text">Accepted into Stanford's LEAD executive program to build the business fluency and cross-functional vocabulary to think about the fuller shape of a company, not just the infrastructure layer underneath it. Also sitting with a question I keep circling back to: how to keep building profitable businesses while still leading authentically, without treating the two as being in tension.</div>
+          <div class="edu-summary-tooltip" onclick="event.stopPropagation(); this.classList.remove('open');">
+            <div class="edu-summary-text">Currently building business fluency and cross-functional vocabulary to think about the fuller shape of a company, not just the engineering layer.</div>
           </div>
         </div>
 
@@ -508,16 +494,16 @@
     <div class="education-section">
       <div class="freetime-row">
 
-        <div class="edu-item freetime-item">
+        <div class="edu-item freetime-item" onclick="toggleTooltip(this, event)">
           <span class="freetime-icon">🎹</span>
-          <div class="edu-summary-tooltip">
+          <div class="edu-summary-tooltip" onclick="event.stopPropagation(); this.classList.remove('open');">
             <div class="edu-summary-text">Picked up piano as an adult beginner. No grand ambitions, just enjoying working through scales and simple pieces one evening at a time.</div>
           </div>
         </div>
 
-        <div class="edu-item freetime-item">
+        <div class="edu-item freetime-item" onclick="toggleTooltip(this, event)">
           <span class="freetime-icon" style="filter: brightness(0.3);">🚲</span>
-          <div class="edu-summary-tooltip">
+          <div class="edu-summary-tooltip" onclick="event.stopPropagation(); this.classList.remove('open');">
             <div class="edu-summary-text">Long rides with no particular destination. One of the few times my head actually goes quiet.</div>
           </div>
         </div>
@@ -540,6 +526,43 @@
       const body = btn.nextElementSibling;
       body.classList.toggle('open');
     }
+
+    function toggleTooltip(el, event) {
+      event.stopPropagation();
+      const tooltip = el.querySelector('.edu-summary-tooltip');
+      const wasOpen = tooltip.classList.contains('open');
+
+      document.querySelectorAll('.edu-summary-tooltip.open').forEach(t => t.classList.remove('open'));
+      if (wasOpen) return;
+
+      const margin = 12;
+      const rect = el.getBoundingClientRect();
+
+      tooltip.style.top = '-9999px';
+      tooltip.style.left = '-9999px';
+      tooltip.classList.add('open');
+
+      requestAnimationFrame(() => {
+        const tw = tooltip.offsetWidth;
+        const th = tooltip.offsetHeight;
+
+        let left = rect.left + rect.width / 2 - tw / 2;
+        left = Math.max(margin, Math.min(left, window.innerWidth - tw - margin));
+
+        let top = rect.bottom + 10;
+        if (top + th > window.innerHeight - margin) {
+          top = rect.top - th - 10;
+        }
+        top = Math.max(margin, top);
+
+        tooltip.style.left = left + 'px';
+        tooltip.style.top = top + 'px';
+      });
+    }
+
+    document.addEventListener('click', function() {
+      document.querySelectorAll('.edu-summary-tooltip.open').forEach(t => t.classList.remove('open'));
+    });
   </script>
 </body>
 </html>
